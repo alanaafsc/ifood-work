@@ -1,0 +1,48 @@
+2022-10-24 10:12:29,035 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2022-10-24 10:13:19,338 [Worker-1: Update Maven projects configuration] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2022-10-24 10:13:20,454 [Worker-1: Update Maven projects configuration] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.github.viniciusfcf.ifood:marketplace:0.0.1-SNAPSHOT @ /Users/alanaafsc/Downloads/udemy-quarkus-71e241095e932ca9b08cf63674df7fba29366b53-2/marketplace/pom.xml.
+2022-10-24 10:13:21,746 [Worker-1: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /marketplace/src/main/java
+2022-10-24 10:13:21,747 [Worker-1: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /marketplace/src/main/resources
+2022-10-24 10:13:21,761 [Worker-1: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /marketplace/src/test/java
+2022-10-24 10:13:21,958 [Worker-17: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.github.viniciusfcf.ifood:cadastro:0.0.1-SNAPSHOT @ /Users/alanaafsc/Downloads/udemy-quarkus-71e241095e932ca9b08cf63674df7fba29366b53-2/cadastro/pom.xml.
+2022-10-24 10:13:23,076 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-24 10:13:23,080 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2022-10-24 10:13:23,092 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-24 10:13:23,092 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alanaafsc/Downloads/udemy-quarkus-71e241095e932ca9b08cf63674df7fba29366b53-2/cadastro/src/test/resources
+2022-10-24 10:13:23,340 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-24 10:13:23,341 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2022-10-24 10:13:23,346 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-24 10:13:23,347 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alanaafsc/Downloads/udemy-quarkus-71e241095e932ca9b08cf63674df7fba29366b53-2/marketplace/src/test/resources
+2022-10-24 10:13:23,447 [Worker-17: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.github.viniciusfcf.ifood:pedido:0.0.1-SNAPSHOT @ /Users/alanaafsc/Downloads/udemy-quarkus-71e241095e932ca9b08cf63674df7fba29366b53-2/pedido/pom.xml.
+2022-10-24 10:13:24,075 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-24 10:13:24,076 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2022-10-24 10:13:24,081 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-24 10:13:24,082 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alanaafsc/Downloads/udemy-quarkus-71e241095e932ca9b08cf63674df7fba29366b53-2/pedido/src/test/resources
+2022-10-24 10:13:25,834 [Worker-1: Update Maven projects configuration] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 6 sec
+2022-10-24 10:13:25,836 [Worker-1: Update Maven projects configuration] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2022-10-24 10:13:26,274 [Worker-1: Update Maven projects configuration] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.github.viniciusfcf.ifood:pedido:0.0.1-SNAPSHOT @ /Users/alanaafsc/Downloads/udemy-quarkus-71e241095e932ca9b08cf63674df7fba29366b53-2/pedido/pom.xml.
+2022-10-24 10:13:26,647 [Worker-1: Update Maven projects configuration] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.github.viniciusfcf.ifood:cadastro:0.0.1-SNAPSHOT @ /Users/alanaafsc/Downloads/udemy-quarkus-71e241095e932ca9b08cf63674df7fba29366b53-2/cadastro/pom.xml.
+2022-10-24 10:13:26,867 [Worker-1: Update Maven projects configuration] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.github.viniciusfcf.ifood:marketplace:0.0.1-SNAPSHOT @ /Users/alanaafsc/Downloads/udemy-quarkus-71e241095e932ca9b08cf63674df7fba29366b53-2/marketplace/pom.xml.
+2022-10-24 10:13:27,201 [Worker-1: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pedido/src/main/java
+2022-10-24 10:13:27,201 [Worker-1: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /pedido/src/main/resources
+2022-10-24 10:13:27,229 [Worker-1: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pedido/src/test/java
+2022-10-24 10:13:27,560 [Worker-1: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /cadastro/src/main/java
+2022-10-24 10:13:27,561 [Worker-1: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /cadastro/src/main/resources
+2022-10-24 10:13:27,570 [Worker-1: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /cadastro/src/test/java
+2022-10-24 10:13:28,754 [Worker-1: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /marketplace/src/main/java
+2022-10-24 10:13:28,755 [Worker-1: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /marketplace/src/main/resources
+2022-10-24 10:13:28,759 [Worker-1: Update Maven projects configuration] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /marketplace/src/test/java
+2022-10-24 10:13:28,894 [Worker-1: Update Maven projects configuration] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 3 sec
+2022-10-24 10:13:29,034 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-24 10:13:29,039 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2022-10-24 10:13:29,051 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-24 10:13:29,051 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alanaafsc/Downloads/udemy-quarkus-71e241095e932ca9b08cf63674df7fba29366b53-2/cadastro/src/test/resources
+2022-10-24 10:13:29,335 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-24 10:13:29,337 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2022-10-24 10:13:29,343 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-24 10:13:29,343 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alanaafsc/Downloads/udemy-quarkus-71e241095e932ca9b08cf63674df7fba29366b53-2/marketplace/src/test/resources
+2022-10-24 10:13:29,481 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-24 10:13:29,482 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2022-10-24 10:13:29,487 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-24 10:13:29,488 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/alanaafsc/Downloads/udemy-quarkus-71e241095e932ca9b08cf63674df7fba29366b53-2/pedido/src/test/resources
+2022-10-24 10:20:21,822 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
