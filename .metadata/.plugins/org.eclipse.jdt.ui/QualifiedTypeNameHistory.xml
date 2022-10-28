@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.eclipse.microprofile.openapi.annotations.tags.Tag"/>
-    <fullyQualifiedTypeName name="javax.transaction.Transactional"/>
-    <fullyQualifiedTypeName name="javax.ws.rs.NotFoundException"/>
-    <fullyQualifiedTypeName name="org.eclipse.microprofile.openapi.annotations.tags.Tags"/>
-</qualifiedTypeNameHistroy>
