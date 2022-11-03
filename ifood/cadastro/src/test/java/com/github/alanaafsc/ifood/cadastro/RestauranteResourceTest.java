@@ -7,6 +7,7 @@ import javax.ws.rs.core.Response.Status;
 import org.approvaltests.Approvals;
 import org.junit.jupiter.api.Test;
 
+import com.github.alanaafsc.ifood.cadastro.dto.AtualizarRestauranteDTO;
 import com.github.database.rider.cdi.api.DBRider;
 import com.github.database.rider.core.api.configuration.DBUnit;
 import com.github.database.rider.core.api.configuration.Orthography;
@@ -43,8 +44,8 @@ public class RestauranteResourceTest {
     @Test
     @DataSet("restaurantes-cenario-1.yml")
     public void testAtualizarRestaurante() {
-    	Restaurante dto = new Restaurante();
-    	dto.nome = "novoNome";
+    	AtualizarRestauranteDTO dto = new AtualizarRestauranteDTO();
+        dto.nomeFantasia = "novoNome";
     	Long parameterValue = 123L;
     	given()
 		    	.with().pathParam("id", parameterValue)
@@ -55,7 +56,7 @@ public class RestauranteResourceTest {
     	Restaurante findById = Restaurante.findById(parameterValue);
     	
     	//poderia testar todos os outros atributos
-    	assertEquals(dto.nome, findById.nome);
+    	assertEquals(dto.nomeFantasia, findById.nome);
     	
 	    	
     }

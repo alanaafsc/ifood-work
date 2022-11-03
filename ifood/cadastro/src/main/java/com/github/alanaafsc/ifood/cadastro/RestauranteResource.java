@@ -2,6 +2,8 @@ package com.github.alanaafsc.ifood.cadastro;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -22,6 +24,8 @@ import javax.ws.rs.core.Response.Status;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import com.github.alanaafsc.ifood.cadastro.dto.AdicionarRestauranteDTO;
+import com.github.alanaafsc.ifood.cadastro.dto.AtualizarRestauranteDTO;
+import com.github.alanaafsc.ifood.cadastro.dto.RestauranteDTO;
 import com.github.alanaafsc.ifood.cadastro.dto.RestauranteMapper;
 
 @Path("/restaurantes")
@@ -29,13 +33,15 @@ import com.github.alanaafsc.ifood.cadastro.dto.RestauranteMapper;
 @Produces(MediaType.APPLICATION_JSON)
 @Tag(name = "Restaurante")
 public class RestauranteResource {
-	
+
 	@Inject
-    RestauranteMapper restauranteMapper;
-	
+	RestauranteMapper restauranteMapper;
+
+
 	@GET
-	public List<Restaurante> listarRestaurantes() {
-		return Restaurante.listAll();
+	public List<RestauranteDTO> listarRestaurantes() {
+		Stream<Restaurante> restaurantes = Restaurante.streamAll();
+		return restaurantes.map(r -> restauranteMapper.toRestauranteDTO(r)).collect(Collectors.toList());
 	}
 
 	@POST
@@ -49,14 +55,15 @@ public class RestauranteResource {
 	@PUT
 	@Path("{id}")
 	@Transactional
-	public void atualizarRestaurante(@PathParam("id") Long id, Restaurante dto) {
+	public void atualizarRestaurante(@PathParam("id") Long id, AtualizarRestauranteDTO dto) {
 		Optional<Restaurante> restauranteOp = Restaurante.findByIdOptional(id);
 		if (restauranteOp.isEmpty()) {
 			throw new NotFoundException();
 		}
 		Restaurante restaurante = restauranteOp.get();
 
-		restaurante.nome = dto.nome;
+		//MapStruct: aqui passo a referencia para ser atualizada 
+        restauranteMapper.toRestaurante(dto, restaurante);
 
 		restaurante.persist();
 	}
