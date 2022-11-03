@@ -84,7 +84,7 @@ public class PratoResource {
 		}
 		
 		Prato prato = pratoOp.get();
-		pratoMapper.toPrato(dto, prato);
+		pratoMapper.toPratoAtt(dto, prato);
 		prato.persist();
 	}
 

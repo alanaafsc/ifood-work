@@ -17,7 +17,7 @@ public interface RestauranteMapper {
 	public Restaurante toRestaurante(AdicionarRestauranteDTO dto);
 	
 	@Mapping(target = "nome", source = "nomeFantasia")
-    public void toRestaurante(AtualizarRestauranteDTO dto, @MappingTarget Restaurante restaurante);
+    public void toRestauranteAtt(AtualizarRestauranteDTO dto, @MappingTarget Restaurante restaurante);
 
     @Mapping(target = "nomeFantasia", source = "nome")
     //Exemplo de formatação.

@@ -12,5 +12,5 @@ public interface PratoMapper {
 
     Prato toPrato(AdicionarPratoDTO dto);
 
-    void toPrato(AtualizarPratoDTO dto, @MappingTarget Prato prato);
+    void toPratoAtt(AtualizarPratoDTO dto, @MappingTarget Prato prato);
 }

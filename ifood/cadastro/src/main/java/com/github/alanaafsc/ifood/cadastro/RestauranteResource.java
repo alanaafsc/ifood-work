@@ -63,7 +63,7 @@ public class RestauranteResource {
 		Restaurante restaurante = restauranteOp.get();
 
 		//MapStruct: aqui passo a referencia para ser atualizada 
-        restauranteMapper.toRestaurante(dto, restaurante);
+        restauranteMapper.toRestauranteAtt(dto, restaurante);
 
 		restaurante.persist();
 	}
