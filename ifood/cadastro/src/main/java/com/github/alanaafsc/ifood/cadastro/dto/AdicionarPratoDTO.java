@@ -3,10 +3,10 @@ package com.github.alanaafsc.ifood.cadastro.dto;
 import java.math.BigDecimal;
 
 public class AdicionarPratoDTO {
-	
-	 public String nome;
 
-     public String descricao;
+	public String nome;
 
-     public BigDecimal preco;
+	public String descricao;
+
+	public BigDecimal preco;
 }

@@ -21,12 +21,16 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.eclipse.microprofile.openapi.annotations.media.Content;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import com.github.alanaafsc.ifood.cadastro.dto.AdicionarRestauranteDTO;
 import com.github.alanaafsc.ifood.cadastro.dto.AtualizarRestauranteDTO;
 import com.github.alanaafsc.ifood.cadastro.dto.RestauranteDTO;
 import com.github.alanaafsc.ifood.cadastro.dto.RestauranteMapper;
+import com.github.alanaafsc.ifood.cadastro.infra.ConstraintViolationResponse;
 
 @Path("/restaurantes")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -46,6 +50,8 @@ public class RestauranteResource {
 
 	@POST
 	@Transactional
+	@APIResponse(responseCode = "201", description = "Caso restaurante seja cadastrado com sucesso")
+	@APIResponse(responseCode = "400", content = @Content(schema = @Schema(allOf = ConstraintViolationResponse.class)))
 	public Response criarRestaurante(@Valid AdicionarRestauranteDTO dto) {
 		Restaurante restaurante = restauranteMapper.toRestaurante(dto);
 		restaurante.persist();
