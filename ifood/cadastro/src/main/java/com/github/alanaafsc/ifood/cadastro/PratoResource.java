@@ -22,7 +22,6 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 @Path("/restaurantes/{idRestaurante}/pratos")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@Tag(name = "Restaurante")
 @Tag(name = "Prato")
 public class PratoResource {
 

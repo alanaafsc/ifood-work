@@ -3,7 +3,9 @@ package com.github.alanaafsc.ifood.cadastro;
 import java.util.List;
 import java.util.Optional;
 
+import javax.inject.Inject;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -19,12 +21,18 @@ import javax.ws.rs.core.Response.Status;
 
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
+import com.github.alanaafsc.ifood.cadastro.dto.AdicionarRestauranteDTO;
+import com.github.alanaafsc.ifood.cadastro.dto.RestauranteMapper;
+
 @Path("/restaurantes")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Tag(name = "Restaurante")
 public class RestauranteResource {
-
+	
+	@Inject
+    RestauranteMapper restauranteMapper;
+	
 	@GET
 	public List<Restaurante> listarRestaurantes() {
 		return Restaurante.listAll();
@@ -32,8 +40,9 @@ public class RestauranteResource {
 
 	@POST
 	@Transactional
-	public Response criarRestaurante(Restaurante dto) {
-		dto.persist();
+	public Response criarRestaurante(@Valid AdicionarRestauranteDTO dto) {
+		Restaurante restaurante = restauranteMapper.toRestaurante(dto);
+		restaurante.persist();
 		return Response.status(Status.CREATED).build();
 	}
 
