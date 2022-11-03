@@ -51,7 +51,7 @@ public class RestauranteResource {
 	@POST
 	@Transactional
 	@APIResponse(responseCode = "201", description = "Caso restaurante seja cadastrado com sucesso")
-	@APIResponse(responseCode = "400", content = @Content(schema = @Schema(allOf = ConstraintViolationResponse.class)))
+    @APIResponse(responseCode = "400", content = @Content(schema = @Schema(allOf = ConstraintViolationResponse.class)))
 	public Response criarRestaurante(@Valid AdicionarRestauranteDTO dto) {
 		Restaurante restaurante = restauranteMapper.toRestaurante(dto);
 		restaurante.persist();

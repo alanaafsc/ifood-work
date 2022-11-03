@@ -1,11 +1,14 @@
 package com.github.alanaafsc.ifood.cadastro.dto;
 
+import javax.enterprise.context.ApplicationScoped;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 import com.github.alanaafsc.ifood.cadastro.Restaurante;
 
+@ApplicationScoped
 @Mapper(componentModel = "cdi")
 public interface RestauranteMapper {
 	
