@@ -31,6 +31,7 @@ import com.github.alanaafsc.ifood.cadastro.dto.AdicionarPratoDTO;
 import com.github.alanaafsc.ifood.cadastro.dto.AtualizarPratoDTO;
 import com.github.alanaafsc.ifood.cadastro.dto.PratoDTO;
 import com.github.alanaafsc.ifood.cadastro.dto.PratoMapper;
+import com.github.alanaafsc.ifood.cadastro.dto.RestauranteMapper;
 
 @Path("/restaurantes/{idRestaurante}/pratos")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -42,6 +43,9 @@ public class PratoResource {
 	
 	@Inject
 	PratoMapper pratoMapper;
+	
+	@Inject
+	RestauranteMapper restauranteMapper;
 
 	@GET
 	@Path("{idRestaurante}/pratos")

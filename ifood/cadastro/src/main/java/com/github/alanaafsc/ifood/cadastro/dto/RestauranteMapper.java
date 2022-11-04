@@ -1,14 +1,12 @@
 package com.github.alanaafsc.ifood.cadastro.dto;
 
-import javax.enterprise.context.ApplicationScoped;
-
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 import com.github.alanaafsc.ifood.cadastro.Restaurante;
 
-@ApplicationScoped
+
 @Mapper(componentModel = "cdi")
 public interface RestauranteMapper {
 	
@@ -17,13 +15,13 @@ public interface RestauranteMapper {
     @Mapping(target = "dataCriacao", ignore = true)
     @Mapping(target = "dataAtualizacao", ignore = true)
     @Mapping(target = "localizacao.id", ignore = true)
-	public Restaurante toRestaurante(AdicionarRestauranteDTO dto);
+    Restaurante toRestaurante(AdicionarRestauranteDTO dto);
 	
 	@Mapping(target = "nome", source = "nomeFantasia")
-    public void toRestauranteAtt(AtualizarRestauranteDTO dto, @MappingTarget Restaurante restaurante);
+    void toRestauranteAtt(AtualizarRestauranteDTO dto, @MappingTarget Restaurante restaurante);
 
     @Mapping(target = "nomeFantasia", source = "nome")
     //Exemplo de formatação.
     @Mapping(target = "dataCriacao", dateFormat = "dd/MM/yyyy HH:mm:ss")
-    public RestauranteDTO toRestauranteDTO(Restaurante r);
+    RestauranteDTO toRestauranteDTO(Restaurante r);
 }

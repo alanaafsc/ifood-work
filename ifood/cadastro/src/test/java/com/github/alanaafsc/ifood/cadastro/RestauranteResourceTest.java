@@ -5,9 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import javax.ws.rs.core.Response.Status;
 
 import org.approvaltests.Approvals;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.github.alanaafsc.ifood.cadastro.dto.AtualizarRestauranteDTO;
+import com.github.alanaafsc.ifood.cadastro.util.TokenUtils;
 import com.github.database.rider.cdi.api.DBRider;
 import com.github.database.rider.core.api.configuration.DBUnit;
 import com.github.database.rider.core.api.configuration.Orthography;
@@ -17,6 +19,7 @@ import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.http.Header;
 import io.restassured.specification.RequestSpecification;
 
 @DBRider
@@ -24,6 +27,12 @@ import io.restassured.specification.RequestSpecification;
 @QuarkusTest
 @QuarkusTestResource(CadastroTestLifecycleManager.class)
 public class RestauranteResourceTest {
+
+	private String token;
+	@BeforeEach
+	public void gereToken() throws Exception{
+		token = TokenUtils.generateTokenString("/JWTProprietarioClaims.json", null);
+	}
 
     @Test
     @DataSet("restaurantes-cenario-1.yml")
@@ -38,7 +47,8 @@ public class RestauranteResourceTest {
     }
     
     private RequestSpecification given(){
-    	return RestAssured.given().contentType(ContentType.JSON);
+		return RestAssured.given()
+				.contentType(ContentType.JSON).header(new Header("Authorization", "Bearer " + token));
     }
     
     @Test
@@ -57,7 +67,6 @@ public class RestauranteResourceTest {
     	
     	//poderia testar todos os outros atributos
     	assertEquals(dto.nomeFantasia, findById.nome);
-    	
 	    	
     }
     

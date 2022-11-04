@@ -28,12 +28,12 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.security.OAuthFlow;
 import org.eclipse.microprofile.openapi.annotations.security.OAuthFlows;
-import org.eclipse.microprofile.openapi.annotations.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.annotations.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import com.github.alanaafsc.ifood.cadastro.dto.AdicionarRestauranteDTO;
 import com.github.alanaafsc.ifood.cadastro.dto.AtualizarRestauranteDTO;
+import com.github.alanaafsc.ifood.cadastro.dto.PratoMapper;
 import com.github.alanaafsc.ifood.cadastro.dto.RestauranteDTO;
 import com.github.alanaafsc.ifood.cadastro.dto.RestauranteMapper;
 import com.github.alanaafsc.ifood.cadastro.infra.ConstraintViolationResponse;
@@ -49,7 +49,9 @@ public class RestauranteResource {
 	@Inject
 	RestauranteMapper restauranteMapper;
 
-
+	@Inject
+	PratoMapper pratoMapper;
+	
 	@GET
 	public List<RestauranteDTO> listarRestaurantes() {
 		Stream<Restaurante> restaurantes = Restaurante.streamAll();
