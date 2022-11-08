@@ -1,4 +1,4 @@
-package com.github.alanaafsc.ifood;
+package com.github.alanaafsc.ifood.mp;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
