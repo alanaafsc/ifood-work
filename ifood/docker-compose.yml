@@ -27,3 +27,13 @@ services:
       - "16686:16686"
       - "14268:14268"
       - "9411:9411"
+  prometheus_ifood:
+    container_name: prometheus_ifood
+    image: prometheus-ifood
+    ports:
+      - "9090:9090"
+  grafana_ifood:
+    container_name: grafana_ifood
+    image: grafana/grafana:9.0.0
+    ports:
+      - "3000:3000"
