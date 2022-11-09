@@ -33,14 +33,11 @@ import org.eclipse.microprofile.openapi.annotations.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import com.github.alanaafsc.ifood.cadastro.dto.AdicionarPratoDTO;
-import com.github.alanaafsc.ifood.cadastro.dto.AdicionarRestauranteDTO;
 import com.github.alanaafsc.ifood.cadastro.dto.AtualizarPratoDTO;
-import com.github.alanaafsc.ifood.cadastro.dto.AtualizarRestauranteDTO;
 import com.github.alanaafsc.ifood.cadastro.dto.PratoDTO;
 import com.github.alanaafsc.ifood.cadastro.dto.PratoMapper;
-import com.github.alanaafsc.ifood.cadastro.dto.RestauranteDTO;
 import com.github.alanaafsc.ifood.cadastro.dto.RestauranteMapper;
-import com.github.alanaafsc.ifood.cadastro.infra.ConstraintViolationResponse;
+
 
 @Path("/restaurantes/{idRestaurante}/pratos")
 @Produces(MediaType.APPLICATION_JSON)

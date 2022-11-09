@@ -7,6 +7,8 @@ import java.util.stream.Stream;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
@@ -29,8 +31,13 @@ import org.eclipse.microprofile.openapi.annotations.enums.SecuritySchemeType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
-import org.eclipse.microprofile.openapi.annotations.security.*;
+import org.eclipse.microprofile.openapi.annotations.security.OAuthFlow;
+import org.eclipse.microprofile.openapi.annotations.security.OAuthFlows;
+import org.eclipse.microprofile.openapi.annotations.security.SecurityRequirement;
+import org.eclipse.microprofile.openapi.annotations.security.SecurityScheme;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.eclipse.microprofile.reactive.messaging.Channel;
+import org.eclipse.microprofile.reactive.messaging.Emitter;
 
 import com.github.alanaafsc.ifood.cadastro.dto.AdicionarPratoDTO;
 import com.github.alanaafsc.ifood.cadastro.dto.AdicionarRestauranteDTO;
@@ -56,6 +63,10 @@ public class RestauranteResource {
 
 	@Inject
 	PratoMapper pratoMapper;
+
+	@Inject
+	@Channel("restaurantes")
+	Emitter<String> emitter;
 	
 	@GET
 	@Counted(name = "Quantidade buscas Restaurante")
@@ -73,6 +84,11 @@ public class RestauranteResource {
 	public Response criarRestaurante(@Valid AdicionarRestauranteDTO dto) {
 		Restaurante restaurante = restauranteMapper.toRestaurante(dto);
 		restaurante.persist();
+
+		Jsonb jsonb = JsonbBuilder.create();
+		String json = jsonb.toJson(restaurante);
+		emitter.send(json);
+
 		return Response.status(Status.CREATED).build();
 	}
 
