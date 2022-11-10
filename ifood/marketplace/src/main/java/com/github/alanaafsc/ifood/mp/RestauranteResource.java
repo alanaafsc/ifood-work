@@ -1,11 +1,14 @@
 package com.github.alanaafsc.ifood.mp;
 
-import io.smallrye.mutiny.Multi;
-import io.vertx.mutiny.pgclient.PgPool;
-
 import javax.inject.Inject;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+
+import io.smallrye.mutiny.Multi;
 
 @Path("/restaurantes")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -13,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 public class RestauranteResource {
 
     @Inject
-    PgPool client;
+    io.vertx.mutiny.pgclient.PgPool client;
 
     @GET
     @Path("{idRestaurante}/pratos")
