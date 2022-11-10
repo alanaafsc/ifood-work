@@ -1,4 +1,4 @@
-package com.github.alanaafsc.ifood.mp;
+package com.github.alanaafsc.ifood.mp.dto;
 
 import io.vertx.mutiny.sqlclient.Row;
 

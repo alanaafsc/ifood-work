@@ -1,5 +1,6 @@
 package com.github.alanaafsc.ifood.mp;
 
+import com.github.alanaafsc.ifood.mp.dto.PratoDTO;
 import io.smallrye.mutiny.Multi;
 import io.vertx.mutiny.pgclient.PgPool;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;

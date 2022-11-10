@@ -3,9 +3,9 @@ package com.github.alanaafsc.ifood.mp;
 import java.math.BigDecimal;
 import java.util.stream.StreamSupport;
 
+import com.github.alanaafsc.ifood.mp.dto.PratoDTO;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
-import io.smallrye.mutiny.vertx.TypeArg;
 import io.vertx.mutiny.pgclient.PgPool;
 import io.vertx.mutiny.sqlclient.Row;
 import io.vertx.mutiny.sqlclient.RowSet;
@@ -41,5 +41,11 @@ public class Prato {
                     return StreamSupport.stream(set.spliterator(), false);
                 }))
                 .onItem().transform(PratoDTO::from);
+    }
+
+    public static Uni<PratoDTO> findById(PgPool client, Long id) {
+        return client.preparedQuery("SELECT * FROM prato WHERE id = $1").execute(Tuple.of(id))
+                .map(RowSet::iterator)
+                .map(iterator -> iterator.hasNext() ? PratoDTO.from(iterator.next()) : null);
     }
 }
