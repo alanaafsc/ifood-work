@@ -1,4 +1,4 @@
-package com.github.alanaafsc.ifood;
+package com.github.alanaafsc.ifood.pedido;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

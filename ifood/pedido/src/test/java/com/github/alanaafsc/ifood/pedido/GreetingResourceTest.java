@@ -1,4 +1,4 @@
-package com.github.alanaafsc.ifood;
+package com.github.alanaafsc.ifood.pedido;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
