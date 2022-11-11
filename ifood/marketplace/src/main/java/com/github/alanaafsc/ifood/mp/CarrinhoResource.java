@@ -4,25 +4,24 @@ import com.github.alanaafsc.ifood.mp.dto.PedidoRealizadoDTO;
 import com.github.alanaafsc.ifood.mp.dto.PratoDTO;
 import com.github.alanaafsc.ifood.mp.dto.PratoPedidoDTO;
 import com.github.alanaafsc.ifood.mp.dto.RestauranteDTO;
+import io.smallrye.common.annotation.Blocking;
+import io.smallrye.common.annotation.NonBlocking;
 import io.smallrye.mutiny.Uni;
-import io.smallrye.reactive.messaging.annotations.Blocking;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
-import org.eclipse.microprofile.reactive.messaging.Incoming;
-import org.eclipse.microprofile.reactive.messaging.Outgoing;
 
-import javax.annotation.security.PermitAll;
+
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.github.alanaafsc.ifood.mp.Prato.findById;
 
 @Path("/carrinho")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@PermitAll
 public class CarrinhoResource {
 
     private static final String CLIENTE = "a";
@@ -51,6 +50,7 @@ public class CarrinhoResource {
 
     @POST
     @Path("/realizar-pedido")
+    @Blocking
     public Uni<Boolean> finalizar(){
         PedidoRealizadoDTO pedido = new PedidoRealizadoDTO();
         String cliente = CLIENTE;

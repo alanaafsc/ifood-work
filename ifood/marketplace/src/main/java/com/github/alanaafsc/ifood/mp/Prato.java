@@ -49,3 +49,4 @@ public class Prato {
                 .map(iterator -> iterator.hasNext() ? PratoDTO.from(iterator.next()) : null);
     }
 }
+
