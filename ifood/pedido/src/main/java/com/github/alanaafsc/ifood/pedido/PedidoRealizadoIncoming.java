@@ -11,6 +11,7 @@ public class PedidoRealizadoIncoming {
     @Incoming("pedidos")
     @Blocking
     public void lerPedidos(PedidoRealizadoDTO dto){
+        System.out.println("---------------------");
         System.out.println(dto);
     }
 }

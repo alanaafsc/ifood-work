@@ -58,6 +58,16 @@ services:
       - "8161:8161"
       - "5672:5672"
 
+  mongodb_ifood:
+    container_name: mongodb_ifood
+    image: mongo:6.0.2
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: pedido
+      MONGO_INITDB_ROOT_PASSWORD: pedido
+      MONGO_INITDB_DATABASE: pedido
+    ports:
+      - "27017:27017"
+
   zookeeper:
     container_name: zookeeper_container
     image: debezium/zookeeper:2.0
@@ -68,30 +78,20 @@ services:
   kafka:
     container_name: kafka_container
     image: debezium/kafka:2.0
+    depends_on:
+      - zookeeper
     ports:
       - "9092:9092"
-    links:
-      - zookeeper
     environment:
-      - ZOOKEEPER_CONNECT=zookeeper:2181
-      - ADVERTISED_LISTENERS=PLAINTEXT://172.18.0.11:9092
+      - ZOOKEEPER_CONNECT= zookeeper:2181
+      - ADVERTISED_LISTENERS= PLAINTEXT://host.docker.internal:9092
 
   kafdrop:
     container_name: kafdrop_container
     image: obsidiandynamics/kafdrop:3.24.0
-    environment:
-      KAFKA_BROKERCONNECT: kafka:9092
-    ports:
-      - "9000:9000"
     depends_on:
       - kafka
-
-  mongodb_ifood:
-    container_name: mongodb_ifood
-    image: mongo:6.0.2
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: pedido
-      MONGO_INITDB_ROOT_PASSWORD: pedido
-      MONGO_INITDB_DATABASE: pedido
     ports:
-      - "27017:27017"
+      - "9000:9000"
+    environment:
+      KAFKA_BROKERCONNECT: kafka:9092
