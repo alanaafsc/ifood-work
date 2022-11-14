@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "vertx3-full": "^3.9.4"
+  }
+}
