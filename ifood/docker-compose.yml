@@ -132,13 +132,11 @@ services:
   logstash:
     container_name: logstash
     image: docker.elastic.co/logstash/logstash-oss:6.8.2
-    ports:
-      - "12201:12201/udp"
-      - "5044:5044"
     volumes:
       - source: ./pipelines
         target: /usr/share/logstash/pipeline
         type: bind
+    network_mode: "host"
     depends_on:
       - elastic
 
