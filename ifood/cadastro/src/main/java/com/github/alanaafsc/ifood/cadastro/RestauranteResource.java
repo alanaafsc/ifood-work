@@ -25,6 +25,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.eclipse.microprofile.jwt.Claim;
+import org.eclipse.microprofile.jwt.Claims;
+import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.SimplyTimed;
 import org.eclipse.microprofile.metrics.annotation.Timed;
@@ -63,7 +66,11 @@ public class RestauranteResource {
 	RestauranteMapper restauranteMapper;
 
 	@Inject
-	PratoMapper pratoMapper;
+	JsonWebToken token;
+
+	@Inject
+	@Claim(standard = Claims.sub)
+	String sub;
 
 	@Inject
 	@Channel("restaurantes")
