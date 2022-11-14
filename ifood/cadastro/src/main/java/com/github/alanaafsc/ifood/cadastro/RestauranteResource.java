@@ -12,15 +12,7 @@ import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.NotFoundException;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
@@ -91,6 +83,7 @@ public class RestauranteResource {
     @APIResponse(responseCode = "400", content = @Content(schema = @Schema(allOf = ConstraintViolationResponse.class)))
 	public Response criarRestaurante(@Valid AdicionarRestauranteDTO dto) {
 		Restaurante restaurante = restauranteMapper.toRestaurante(dto);
+		restaurante.proprietario = sub;
 		restaurante.persist();
 
 		Jsonb jsonb = JsonbBuilder.create();
@@ -110,6 +103,10 @@ public class RestauranteResource {
 		}
 		Restaurante restaurante = restauranteOp.get();
 
+		if(!restaurante.proprietario.equals(sub)) {
+			throw new ForbiddenException();
+		}
+
 		//MapStruct: aqui passo a referencia para ser atualizada 
         restauranteMapper.toRestauranteAtt(dto, restaurante);
 
@@ -121,6 +118,9 @@ public class RestauranteResource {
 	@Transactional
 	public void deletarRestaurante(@PathParam("id") Long id) {
 		Optional<Restaurante> restauranteOp = Restaurante.findByIdOptional(id);
+		if(!restauranteOp.get().proprietario.equals(sub)) {
+			throw new ForbiddenException();
+		}
 		restauranteOp.ifPresentOrElse(Restaurante::delete, () -> {
 			throw new NotFoundException();
 		});

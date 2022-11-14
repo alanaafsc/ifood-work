@@ -12,11 +12,7 @@ import com.github.alanaafsc.ifood.cadastro.infra.ValidDTO;
 
 @ValidDTO
 public class AdicionarRestauranteDTO implements DTO {
-	
-	@NotEmpty
-	@NotNull
-	public String proprietario;
-	
+
 	@Pattern(regexp = "[0-9]{2}\\.[0-9]{3}\\.[0-9]{3}\\/[0-9]{4}\\-[0-9]{2}")
 	@NotNull
 	public String cnpj;
