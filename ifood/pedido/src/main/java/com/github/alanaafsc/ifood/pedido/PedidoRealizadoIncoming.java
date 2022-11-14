@@ -5,10 +5,16 @@ import org.bson.types.Decimal128;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
 import java.util.ArrayList;
 
 @ApplicationScoped
 public class PedidoRealizadoIncoming {
+
+    @Inject
+    ESService elastic;
 
     @Incoming("pedidos")
     @Blocking
@@ -23,6 +29,8 @@ public class PedidoRealizadoIncoming {
         Restaurante restaurante = new Restaurante();
         restaurante.nome = dto.restaurante.nome;
         p.restaurante = restaurante;
+        String json = JsonbBuilder.create().toJson(dto);
+        elastic.index("pedidos", json);
         p.persist();
     }
 
