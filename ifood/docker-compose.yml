@@ -3,7 +3,7 @@ version: "3.7"
 services:
   postgres_cadastro:
     container_name: postgres_cadastro_ifood
-    image: debezium/example-postgres
+    image: debezium/example-postgres:1.9.6.Final
     environment:
       POSTGRES_USER: cadastro
       POSTGRES_PASSWORD: cadastro
@@ -143,13 +143,13 @@ services:
   #roda na 8083
   connect:
     container_name: connect
-    image: debezium/connect:1.1
+    image: debezium/connect:1.9.6.Final
     ports:
       - "8083:8083"
     networks:
       - broker-kafka
     environment:
-      - BOOTSTRAP_SERVERS=kafka:29092
+      - BOOTSTRAP_SERVERS= kafka:29092
       - GROUP_ID=1
       - CONFIG_STORAGE_TOPIC=my_connect_configs
       - OFFSET_STORAGE_TOPIC=my_connect_offsets
