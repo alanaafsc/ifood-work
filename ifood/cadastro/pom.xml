@@ -2,32 +2,12 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.alanaafsc.ifood</groupId>
   <artifactId>cadastro</artifactId>
+<parent>
+  <artifactId>ifood</artifactId>
+  <groupId>com.github.alanaafsc.ifood</groupId>
   <version>0.0.1-SNAPSHOT</version>
-  <properties>
-    <compiler-plugin.version>3.8.1</compiler-plugin.version>
-    <maven.compiler.release>11</maven.compiler.release>
-    <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-    <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>2.13.3.Final</quarkus.platform.version>
-    <skipITs>true</skipITs>
-    <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
-  </properties>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>${quarkus.platform.group-id}</groupId>
-        <artifactId>${quarkus.platform.artifact-id}</artifactId>
-        <version>${quarkus.platform.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+</parent>
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>

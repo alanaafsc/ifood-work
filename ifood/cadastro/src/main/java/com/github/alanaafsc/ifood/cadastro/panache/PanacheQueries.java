@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PanacheQueries {
-
+/*
     public void exemplosSelects() {
         //METODOS DA CLASSE
         //findAll
@@ -89,5 +89,5 @@ public class PanacheQueries {
     class MeuRepositorio implements PanacheRepository<MinhaEntidade3> {
 
     }
-
+*/
 }

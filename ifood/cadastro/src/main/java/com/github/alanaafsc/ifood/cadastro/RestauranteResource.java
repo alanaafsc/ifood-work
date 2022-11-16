@@ -66,7 +66,7 @@ public class RestauranteResource {
 
 	@Inject
 	@Channel("restaurantes")
-	Emitter<String> emitter;
+	Emitter<Restaurante> emitter;
 	
 	@GET
 	@Counted(name = "Quantidade buscas Restaurante")
@@ -86,9 +86,9 @@ public class RestauranteResource {
 		restaurante.proprietario = sub;
 		restaurante.persist();
 
-		Jsonb jsonb = JsonbBuilder.create();
-		String json = jsonb.toJson(restaurante);
-		emitter.send(json);
+//		Jsonb jsonb = JsonbBuilder.create();
+//		String json = jsonb.toJson(restaurante);
+		emitter.send(restaurante);
 
 		return Response.status(Status.CREATED).build();
 	}
